@@ -41,8 +41,37 @@ strong { color: var(--text); }
 .lede { font-size: 19px; }
 .card { margin-top: 32px; padding: 24px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
 .card h2 { margin-top: 0; }
+.downloads { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.downloads .card { margin-top: 0; }
+.dl { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.dl h2 { margin-top: 12px; }
+.dl p { margin-top: 4px; }
+.os { width: 36px; height: 36px; fill: var(--text); }
+.btn {
+  margin-top: auto;
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #0a64d8;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover { background: #1a70e0; }
+.btn:focus-visible { outline: 2px solid #64b5ff; outline-offset: 2px; }
+.dl > .btn { margin-top: 20px; }
+.qr { margin-top: 16px; border-radius: 12px; background: #fff; padding: 6px; }
+.qr-hint { font-size: 14px; }
+.phone-btn { display: none; }
+
 footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 @media (max-width: 560px) {
   nav { display: none; }
   h1 { font-size: 30px; }
+  .downloads { grid-template-columns: 1fr; }
+}
+/* on a phone you can't scan your own screen: show a big download button instead of the QR */
+@media (max-width: 760px), (pointer: coarse) {
+  .qr, .qr-hint { display: none; }
+  .phone-btn { display: inline-block; }
 }
